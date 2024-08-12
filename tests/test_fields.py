@@ -1,7 +1,6 @@
 import math
 from datetime import datetime, timezone
 
-from django.db import models
 from django.test import TestCase
 
 from sequencefield.functions import DateFromId, RightShift

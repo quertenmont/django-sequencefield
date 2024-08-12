@@ -1,6 +1,5 @@
 from django.db.models import DateField
 from django.db.models.expressions import Func
-from django.utils.functional import cached_property
 
 
 class NextSeqVal(Func):
