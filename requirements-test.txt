@@ -1,5 +1,4 @@
 coverage == 7.5.*
 pre-commit == 3.5.*
 tox == 4.15.*
-psycopg2-binary
 django-stubs == 5.0.*
