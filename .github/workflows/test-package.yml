@@ -69,10 +69,6 @@ jobs:
       run: |
         tox -e migrations
 
-    - name: Check translations
-      run: |
-        tox -e translations
-
   test:
 
     needs: prepare
@@ -134,7 +130,7 @@ jobs:
 
     - name: Run tests
       run: |
-        coverage run --append --source=colorfield runtests.py
+        coverage run --append --source=sequencefield runtests.py
         coverage report --show-missing
         coverage xml -o ./coverage.xml
 
