@@ -3,14 +3,14 @@
 
 [![](https://img.shields.io/pypi/v/sequencefield.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/sequencefield/)
 [![](https://static.pepy.tech/badge/sequencefield/month)](https://pepy.tech/project/sequencefield)
-[![](https://img.shields.io/github/stars/quertenmont/sequencefield?logo=github&style=flat)](https://github.com/quertenmont/sequencefield/stargazers)
-[![](https://img.shields.io/pypi/l/sequencefield.svg?color=blue)](https://github.com/quertenmont/sequencefield/blob/main/LICENSE.txt)
+[![](https://img.shields.io/github/stars/quertenmont/django-sequencefield?logo=github&style=flat)](https://github.com/quertenmont/django-sequencefield/stargazers)
+[![](https://img.shields.io/pypi/l/sequencefield.svg?color=blue)](https://github.com/quertenmont/django-sequencefield/blob/main/LICENSE.txt)
 
-[![](https://results.pre-commit.ci/badge/github/quertenmont/sequencefield/main.svg)](https://results.pre-commit.ci/latest/github/quertenmont/sequencefield/main)
-[![](https://img.shields.io/github/actions/workflow/status/quertenmont/sequencefield/test-package.yml?branch=main&label=build&logo=github)](https://github.com/quertenmont/sequencefield)
-[![](https://img.shields.io/codecov/c/gh/quertenmont/sequencefield?logo=codecov)](https://codecov.io/gh/quertenmont/sequencefield)
-[![](https://img.shields.io/codacy/grade/194566618f424a819ce43450ea0af081?logo=codacy)](https://www.codacy.com/app/quertenmont/sequencefield)
-[![](https://img.shields.io/codeclimate/maintainability/quertenmont/sequencefield?logo=code-climate)](https://codeclimate.com/github/quertenmont/sequencefield/)
+[![](https://results.pre-commit.ci/badge/github/quertenmont/django-sequencefield/main.svg)](https://results.pre-commit.ci/latest/github/quertenmont/django-sequencefield/main)
+[![](https://img.shields.io/github/actions/workflow/status/quertenmont/django-sequencefield/test-package.yml?branch=main&label=build&logo=github)](https://github.com/quertenmont/django-sequencefield)
+[![](https://img.shields.io/codecov/c/gh/quertenmont/django-sequencefield?logo=codecov)](https://codecov.io/gh/quertenmont/django-sequencefield)
+[![](https://img.shields.io/codacy/grade/194566618f424a819ce43450ea0af081?logo=codacy)](https://www.codacy.com/app/quertenmont/django-sequencefield)
+[![](https://img.shields.io/codeclimate/maintainability/quertenmont/django-sequencefield?logo=code-climate)](https://codeclimate.com/github/quertenmont/django-sequencefield/)
 [![](https://img.shields.io/badge/code%20style-black-000000.svg?logo=python&logoColor=black)](https://github.com/psf/black)
 [![](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
@@ -92,7 +92,7 @@ class BigIntSequenceModel(models.Model):
 ## Testing
 ```bash
 # clone repository
-git clone https://github.com/quertenmont/sequencefield.git && cd sequencefield
+git clone https://github.com/quertenmont/django-sequencefield.git && cd sequencefield
 
 # create virtualenv and activate it
 python -m venv venv && . venv/bin/activate
@@ -122,7 +122,7 @@ Released under [MIT License](LICENSE.txt).
 
 ## Supporting
 
-- :star: Star this project on [GitHub](https://github.com/quertenmont/sequencefield)
+- :star: Star this project on [GitHub](https://github.com/quertenmont/django-sequencefield)
 - :octocat: Follow me on [GitHub](https://github.com/quertenmont)
 - :blue_heart: Follow me on [Twitter](https://twitter.com/LoicQuertenmont)
 - :moneybag: Sponsor me on [Github](https://github.com/sponsors/quertenmont)
