@@ -1,8 +1,8 @@
-[![](https://img.shields.io/pypi/pyversions/sequencefield.svg?color=3776AB&logo=python&logoColor=white)](https://www.python.org/)
-[![](https://img.shields.io/pypi/djversions/sequencefield?color=0C4B33&logo=django&logoColor=white&label=django)](https://www.djangoproject.com/)
+[![](https://img.shields.io/pypi/pyversions/django-sequencefield.svg?color=3776AB&logo=python&logoColor=white)](https://www.python.org/)
+[![](https://img.shields.io/pypi/djversions/django-sequencefield?color=0C4B33&logo=django&logoColor=white&label=django)](https://www.djangoproject.com/)
 
-[![](https://img.shields.io/pypi/v/sequencefield.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/sequencefield/)
-[![](https://static.pepy.tech/badge/sequencefield/month)](https://pepy.tech/project/sequencefield)
+[![](https://img.shields.io/pypi/v/django-sequencefield.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-sequencefield/)
+[![](https://static.pepy.tech/badge/django-sequencefield/month)](https://pepy.tech/project/django-sequencefield)
 [![](https://img.shields.io/github/stars/quertenmont/django-sequencefield?logo=github&style=flat)](https://github.com/quertenmont/django-sequencefield/stargazers)
 [![](https://img.shields.io/pypi/l/sequencefield.svg?color=blue)](https://github.com/quertenmont/django-sequencefield/blob/main/LICENSE.txt)
 
