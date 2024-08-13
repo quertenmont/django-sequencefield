@@ -103,7 +103,7 @@ jobs:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_SERVICE_HOST: postgres
-      POSTGRES_SERVICE_PORT: ${{ job.services.postgres.ports[5432] }}
+      POSTGRES_SERVICE_PORT: 5432 #${{ job.services.postgres.ports[5432] }}
 
     steps:
 
