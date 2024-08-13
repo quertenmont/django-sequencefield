@@ -4,7 +4,7 @@
 [![](https://img.shields.io/pypi/v/django-sequencefield.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-sequencefield/)
 [![](https://static.pepy.tech/badge/django-sequencefield/month)](https://pepy.tech/project/django-sequencefield)
 [![](https://img.shields.io/github/stars/quertenmont/django-sequencefield?logo=github&style=flat)](https://github.com/quertenmont/django-sequencefield/stargazers)
-[![](https://img.shields.io/pypi/l/sequencefield.svg?color=blue)](https://github.com/quertenmont/django-sequencefield/blob/main/LICENSE.txt)
+[![](https://img.shields.io/pypi/l/django-sequencefield.svg?color=blue)](https://github.com/quertenmont/django-sequencefield/blob/main/LICENSE.txt)
 
 [![](https://results.pre-commit.ci/badge/github/quertenmont/django-sequencefield/main.svg)](https://results.pre-commit.ci/latest/github/quertenmont/django-sequencefield/main)
 [![](https://img.shields.io/github/actions/workflow/status/quertenmont/django-sequencefield/test-package.yml?branch=main&label=build&logo=github)](https://github.com/quertenmont/django-sequencefield)
