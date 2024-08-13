@@ -11,6 +11,7 @@ jobs:
     # environment: release
     permissions:
       id-token: write
+      contents: write
 
     steps:
       - name: Checkout
@@ -24,7 +25,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           body: ${{ steps.extract-release-notes.outputs.release_notes }}
-          token: ${{ secrets.WORKFLOWS_CREATE_RELEASE_TOKEN }}
+            #          token: ${{ secrets.WORKFLOWS_CREATE_RELEASE_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
