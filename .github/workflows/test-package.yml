@@ -46,7 +46,7 @@ jobs:
       POSTGRES_DATABASE: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_SERVICE_HOST: postgres
+      POSTGRES_SERVICE_HOST: localhost
       POSTGRES_SERVICE_PORT: 5432 #${{ job.services.postgres.ports[5432] }}
 
     steps:
@@ -102,7 +102,7 @@ jobs:
       POSTGRES_DATABASE: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_SERVICE_HOST: postgres
+      POSTGRES_SERVICE_HOST: localhost
       POSTGRES_SERVICE_PORT: 5432 #${{ job.services.postgres.ports[5432] }}
 
     steps:
