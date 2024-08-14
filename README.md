@@ -63,7 +63,12 @@ class IntSequenceModel(models.Model):
 
 ### Simple AlphaNumeric Example
 Just add an AlphaNumericSequenceField field(s) to your models like this.
-You can provide a "format" argument to define how to convert the number to char.  The syntax is the one used in postgres to_char function ([see here](https://www.postgresql.org/docs/current/functions-formatting.html))
+You can provide a "format" argument to define how to convert the number to char.  The syntax is the one used in postgres to_char function ([see here](https://www.postgresql.org/docs/current/functions-formatting.html)).  In the example bellow, we will get sequence values: INV_000001, INV_000002, INV_000003, ...
+
+```python
+from django.db import models
+from sequencefield.constraints import IntSequenceConstraint
+from sequencefield.fields import AlphaNumericSequenceField
 
 class AlphaNumericSequenceModel(models.Model):
     seqid = AlphaNumericSequenceField(
