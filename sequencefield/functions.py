@@ -1,4 +1,4 @@
-from django.db.models import DateField
+from django.db.models import CharField, DateField
 from django.db.models.expressions import Func
 
 
@@ -9,6 +9,17 @@ class NextSeqVal(Func):
     def __init__(self, sequence="", output_field=None):
         template = f"nextval('{sequence}')"
         super().__init__(output_field=output_field, template=template)
+
+
+class ToChar(Func):
+    template = ""
+    arity = 1
+
+    def __init__(self, *expressions, format="", output_field=None):
+        template = f"to_char(%(expressions)s, '{format}')"
+        super().__init__(
+            *expressions, output_field=output_field or CharField(), template=template
+        )
 
 
 class LeftShift(Func):

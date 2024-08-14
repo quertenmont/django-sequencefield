@@ -3,12 +3,20 @@ from datetime import datetime
 
 from django.core import checks
 from django.db import models
-from django.db.models import BigIntegerField, Field, IntegerField, SmallIntegerField
+from django.db.models import (
+    BigIntegerField,
+    CharField,
+    Field,
+    IntegerField,
+    SmallIntegerField,
+    Value,
+)
 from django.db.models.expressions import Expression
+from django.db.models.functions import Cast, Concat
 from django.utils.functional import cached_property
 
 from .constraints import SequenceConstraint
-from .functions import LeftShift, NextSeqVal
+from .functions import LeftShift, NextSeqVal, ToChar
 
 
 class SequenceFieldMixin(Field):
@@ -71,6 +79,36 @@ class IntegerSequenceField(SequenceFieldMixin, IntegerField):
 
 class BigIntegerSequenceField(SequenceFieldMixin, BigIntegerField):
     pass
+
+
+class AlphaNumericSequenceField(SequenceFieldMixin, CharField):
+    def __init__(self, *args, prefix, separator="_", format: str = "", **kwargs):
+        super().__init__(*args, **kwargs)
+        self.prefix = prefix
+        self.separator = separator
+        self.format = format
+
+    # needed to store the additional parameter
+    def deconstruct(self):
+        name, path, args, kwargs = super().deconstruct()
+        if self.prefix:
+            kwargs["prefix"] = self.prefix
+        if self.separator:
+            kwargs["separator"] = self.separator
+        if self.format:
+            kwargs["format"] = self.format
+        return name, path, args, kwargs
+
+    def get_db_expression(self, model_instance) -> Expression:
+        seqid = super().get_db_expression(model_instance)
+        if self.format:
+            seqid = ToChar(seqid, format=self.format)
+        else:
+            seqid = Cast(seqid, output_field=CharField())
+
+        return Concat(
+            Value(self.prefix + self.separator), seqid, output_field=CharField()
+        )
 
 
 class BigIntegerWithDateSequenceField(SequenceFieldMixin, BigIntegerField):

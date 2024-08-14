@@ -6,7 +6,9 @@ from django.db.utils import DEFAULT_DB_ALIAS
 class SequenceConstraint(BaseConstraint):
     maxvalue: int | None = None
 
-    def __init__(self, name=None, sequence="", maxvalue=None, fields=(), start=1):
+    def __init__(
+        self, name=None, sequence="", drop=True, maxvalue=None, fields=(), start=1
+    ):
         if not sequence:
             raise TypeError(
                 f"{self.__class__.__name__}.__init__() missing 1 required keyword-only "
@@ -14,6 +16,7 @@ class SequenceConstraint(BaseConstraint):
             )
 
         self.fields = tuple(fields)
+        self.drop = drop
         self.start = start
         self.sequence = sequence
         self.maxvalue = maxvalue if maxvalue else self.maxvalue
@@ -25,6 +28,7 @@ class SequenceConstraint(BaseConstraint):
             return (
                 self.name == other.name
                 and self.fields == other.fields
+                and self.drop == other.drop
                 and self.sequence == other.sequence
                 and self.maxvalue == other.maxvalue
             )
@@ -33,6 +37,7 @@ class SequenceConstraint(BaseConstraint):
     def deconstruct(self):
         path, args, kwargs = super().deconstruct()
         kwargs["sequence"] = self.sequence
+        kwargs["drop"] = self.drop
         kwargs["fields"] = self.fields
         kwargs["start"] = self.start
         kwargs["maxvalue"] = self.maxvalue
@@ -68,10 +73,13 @@ class SequenceConstraint(BaseConstraint):
         assert schema_editor
         assert model
 
-        return schema_editor.execute(
-            sql=f"""DROP SEQUENCE IF EXISTS {self.sequence}""",
-            params=(),
-        )
+        if self.drop:
+            return schema_editor.execute(
+                sql=f"""DROP SEQUENCE IF EXISTS {self.sequence}""",
+                params=(),
+            )
+
+        return
 
     def validate(self, model, instance, exclude=None, using=DEFAULT_DB_ALIAS):
         print("CALL VALIDATE")

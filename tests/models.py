@@ -2,6 +2,7 @@ from django.db import models
 
 from sequencefield.constraints import BigIntSequenceConstraint, IntSequenceConstraint
 from sequencefield.fields import (
+    AlphaNumericSequenceField,
     BigIntegerWithDateSequenceField,
     IntegerSequenceField,
 )
@@ -35,6 +36,42 @@ class IntSequenceModelB(models.Model):
                 sequence="int_custseq",
                 fields=["seqid"],
                 start=100,
+            )
+        ]
+
+    def __str__(self) -> str:
+        return f"seqid:{self.seqid}"
+
+
+class AlphaNumericSequenceModelA(models.Model):
+    seqid = AlphaNumericSequenceField(primary_key=True, prefix="INV")  # type: ignore
+
+    class Meta:
+        constraints = [
+            IntSequenceConstraint(
+                name="%(app_label)s_%(class)s_custseq",
+                sequence="alphanumA_custseq",
+                fields=["seqid"],
+                start=1,
+            )
+        ]
+
+    def __str__(self) -> str:
+        return f"seqid:{self.seqid}"
+
+
+class AlphaNumericSequenceModelB(models.Model):
+    seqid = AlphaNumericSequenceField(
+        primary_key=False, prefix="INV", format="FM000000"
+    )  # type: ignore
+
+    class Meta:
+        constraints = [
+            IntSequenceConstraint(
+                name="%(app_label)s_%(class)s_custseq",
+                sequence="alphanumB_custseq",
+                fields=["seqid"],
+                start=1,
             )
         ]
 

@@ -5,13 +5,15 @@ from django.test import TestCase
 
 from sequencefield.functions import DateFromId, RightShift
 from tests.models import (
+    AlphaNumericSequenceModelA,
+    AlphaNumericSequenceModelB,
     BigIntSequenceModel,
     IntSequenceModelA,
     IntSequenceModelB,
 )
 
 
-class ColorFieldTestCase(TestCase):
+class SequenceFieldTestCase(TestCase):
     def setUp(self):
         pass
 
@@ -36,6 +38,22 @@ class ColorFieldTestCase(TestCase):
         a2.save()
         self.assertEqual(a2.seqid, 102)
 
+    def test_model_alphanumeric_wfmt(self):
+        """
+        Checking that alphanumeric model works fine
+        """
+        b = AlphaNumericSequenceModelB()
+        b.save()
+        self.assertEqual(b.seqid, "INV_000001")
+
+    def test_model_alphanumeric_wofmt(self):
+        """
+        Checking that alphanumeric model works fine
+        """
+        a = AlphaNumericSequenceModelA()
+        a.save()
+        self.assertEqual(a.seqid, "INV_1")
+
     def test_model_idWithDate(self):
         """
         Checking that id we can generate an id containing a data value inside
@@ -49,9 +67,10 @@ class ColorFieldTestCase(TestCase):
         data = BigIntSequenceModel.objects.values(
             epochdays=RightShift("seqid", bits=48)
         ).first()
-        print("epochdays", data)
+        assert data
         self.assertEqual(data["epochdays"], math.floor(dt.timestamp() / 86400))
 
         # verify that we can extract the date from the id itself
         data = BigIntSequenceModel.objects.values(date=DateFromId("seqid")).first()
+        assert data
         self.assertEqual(data["date"], dt.date())

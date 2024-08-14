@@ -17,6 +17,7 @@
 # sequencefield
 simple model field taking it's value from a postgres sequence.  This is an easy replacement for django autofield offering the following advantages:
 -  Sequence could be shared among multiple models (db tables), so you can now have unique id among multiple django models
+-  Possibility to generate alphanumeric id of the form "{PREFIX}_{ID}"
 -  Unique Id could also be combined with data from other field to build complex id.  One example is given that combine unique id with date information to offer an efficient table indexing/clustering for faster data retrieval when filtering on date.  (Particularly useful with BRIN index)
 
 
@@ -51,6 +52,7 @@ class IntSequenceModel(models.Model):
             IntSequenceConstraint(
                 name="%(app_label)s_%(class)s_custseq",
                 sequence="int_custseq", #name of sequence to use
+                drop=False, #avoid deleting the sequence if shared among multiple tables
                 fields=["id"], #name of the field that should be populated by this sequence
                 start=100, #first value of the sequence
                 maxvalue=200 #max value allowed for the sequence, will raise error if we go above, use None for the maximum allowed value of the db
@@ -58,6 +60,26 @@ class IntSequenceModel(models.Model):
         ]
 
 ```
+
+### Simple AlphaNumeric Example
+Just add an AlphaNumericSequenceField field(s) to your models like this.
+You can provide a "format" argument to define how to convert the number to char.  The syntax is the one used in postgres to_char function ([see here](https://www.postgresql.org/docs/current/functions-formatting.html))
+
+class AlphaNumericSequenceModel(models.Model):
+    seqid = AlphaNumericSequenceField(
+        primary_key=False, prefix="INV", format="FM000000"
+    )
+
+    class Meta:
+        constraints = [
+            IntSequenceConstraint(
+                name="%(app_label)s_%(class)s_custseq",
+                sequence="alphanum_custseq", , #name of sequence to use
+                drop=False, #avoid deleting the sequence if shared among multiple tables
+                fields=["seqid"], #name of the field that should be populated by this sequence
+                start=1,
+            )
+        ]
 
 ### Advance Example
 Just add a sequence field(s) to your models like this:
@@ -80,12 +102,19 @@ class BigIntSequenceModel(models.Model):
             BigIntSequenceConstraint(
                 name="%(app_label)s_%(class)s_custseq",
                 sequence="gdw_post_custseq", #name of the quence
+                drop=False, #avoid deleting the sequence if shared among multiple tables
                 fields=["seqid"], #field to be populated from this sequence
                 start=1, #first value of the sequence
             )
         ]
 ```
 
+---
+
+## Remarks
+
+Until we find a good solution to properly handle supression of a sequence shared among multiple tables,
+It's better to pass the flag drop=False in the SequenceConstraint.  Otherwise a sequence that is still being used by another table might be deleted.
 
 ---
 
