@@ -10,9 +10,10 @@
 [![](https://img.shields.io/github/actions/workflow/status/quertenmont/django-sequencefield/test-package.yml?branch=main&label=build&logo=github)](https://github.com/quertenmont/django-sequencefield)
 [![](https://img.shields.io/codecov/c/gh/quertenmont/django-sequencefield?logo=codecov)](https://codecov.io/gh/quertenmont/django-sequencefield)
 [![](https://img.shields.io/codacy/grade/194566618f424a819ce43450ea0af081?logo=codacy)](https://www.codacy.com/app/quertenmont/django-sequencefield)
-[![](https://img.shields.io/codeclimate/maintainability/quertenmont/django-sequencefield?logo=code-climate)](https://codeclimate.com/github/quertenmont/django-sequencefield/)
 [![](https://img.shields.io/badge/code%20style-black-000000.svg?logo=python&logoColor=black)](https://github.com/psf/black)
 [![](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+
 
 # sequencefield
 simple model field taking it's value from a postgres sequence.  This is an easy replacement for django autofield offering the following advantages:
@@ -85,6 +86,7 @@ class AlphaNumericSequenceModel(models.Model):
                 start=1,
             )
         ]
+```
 
 ### Advance Example
 Just add a sequence field(s) to your models like this:
