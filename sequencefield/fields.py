@@ -57,6 +57,9 @@ class SequenceFieldMixin(Field):
 
     def pre_save(self, model_instance, add):
         if add:
+            value = getattr(model_instance, self.attname)
+            if value:
+                return value
             return self.get_db_expression(model_instance)
         else:
             return super().pre_save(model_instance, add)

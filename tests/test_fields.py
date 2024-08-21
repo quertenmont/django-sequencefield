@@ -38,6 +38,14 @@ class SequenceFieldTestCase(TestCase):
         a2.save()
         self.assertEqual(a2.seqid, 102)
 
+    def test_model_with_existing_id(self):
+        """
+        Checking that id is NOT taken from sequence field if provided
+        """
+        a = IntSequenceModelA(seqid=999)
+        a.save()
+        self.assertEqual(a.seqid, 999)
+
     def test_model_alphanumeric_wfmt(self):
         """
         Checking that alphanumeric model works fine
