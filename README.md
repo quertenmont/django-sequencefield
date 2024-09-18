@@ -25,7 +25,7 @@ simple model field taking it's value from a postgres sequence.  This is an easy 
 ---
 
 ## Installation
--   Run `pip install sequencefield`
+-   Run `pip install sequence-field`
 -   Use a (Small/Big)IntegerSequenceField in one of your model
 -   Add a SequenceConstraint into the same model to name the sequence field to use and which id should take values from this sequence constraint
 
