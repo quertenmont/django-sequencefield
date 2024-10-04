@@ -1,5 +1,6 @@
 [![](https://img.shields.io/pypi/pyversions/django-sequencefield.svg?color=3776AB&logo=python&logoColor=white)](https://www.python.org/)
 [![](https://img.shields.io/pypi/djversions/django-sequencefield?color=0C4B33&logo=django&logoColor=white&label=django)](https://www.djangoproject.com/)
+[![Published on Django Packages](https://img.shields.io/badge/Published%20on-Django%20Packages-0c3c26)](https://djangopackages.org/packages/p/django-sequencefield/)
 
 [![](https://img.shields.io/pypi/v/django-sequencefield.svg?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/django-sequencefield/)
 [![](https://static.pepy.tech/badge/django-sequencefield/month)](https://pepy.tech/project/django-sequencefield)
