@@ -1,4 +1,4 @@
 coverage == 7.8.*
-pre-commit == 4.1.*
+pre-commit == 4.2.*
 tox == 4.25.*
 django-stubs == 5.1.*
