@@ -69,10 +69,11 @@ exclude = '''
   | venv
 )/
 '''
-
 [tool.ruff]
-ignore = []
 line-length = 88
+
+[tool.ruff.lint]
+ignore = []
 select = ["B", "B9", "C", "E", "F", "W"]
 
 [tool.ruff.mccabe]
