@@ -76,7 +76,7 @@ line-length = 88
 ignore = []
 select = ["B", "B9", "C", "E", "F", "W"]
 
-[tool.ruff.mccabe]
+[tool.ruff.lint.mccabe]
 max-complexity = 10
 
 [tool.mypy]
