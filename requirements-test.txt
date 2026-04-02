@@ -1,4 +1,4 @@
 coverage == 7.13.*
 pre-commit == 4.5.*
 tox == 4.47.*
-django-stubs == 5.2.*
+django-stubs == 6.0.*
