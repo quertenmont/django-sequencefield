@@ -19,7 +19,7 @@ jobs:
         with:
           matrix: |
             python-version {3.11}, django-version {5.0, 5.1}
-            #            python-version {3.12}, django-version {5.0, 5.1}
+            python-version {3.12}, django-version {5.0, 5.1, 6.0}
 
     outputs:
       matrix: ${{ steps.create_matrix.outputs.matrix }}
