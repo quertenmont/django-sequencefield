@@ -7,6 +7,10 @@ on:
   # on demand
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   auto-update:
     runs-on: ubuntu-latest
