@@ -150,6 +150,15 @@ python runtests.py
 # or
 python -m django test --settings "tests.settings"
 ```
+
+## Dependabot auto-merge
+- Dependabot PRs automatically get auto-merge enabled by `.github/workflows/dependabot-auto-merge.yml`.
+- The workflow only runs for Dependabot-authored, non-draft PR updates (`github.actor == 'dependabot[bot]'`).
+- It uses the repository `GITHUB_TOKEN` and enables **squash** auto-merge.
+- Prerequisites:
+  - Repository setting **Allow auto-merge** must be enabled.
+  - Branch protection must define required status checks; merge happens only after those checks pass.
+
 ---
 
 ## License
