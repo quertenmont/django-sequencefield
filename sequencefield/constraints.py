@@ -82,7 +82,6 @@ class SequenceConstraint(BaseConstraint):
         return
 
     def validate(self, model, instance, exclude=None, using=DEFAULT_DB_ALIAS):
-        print("CALL VALIDATE")
         pass
 
 
