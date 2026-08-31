@@ -47,20 +47,21 @@ from sequencefield.fields import IntegerSequenceField
 
 
 class IntSequenceModel(models.Model):
-    id = IntegerSequenceField(primary_key=True) #primary_key=False works too
+    id = IntegerSequenceField(primary_key=True)  # primary_key=False works too
 
     class Meta:
         constraints = [
             IntSequenceConstraint(
                 name="%(app_label)s_%(class)s_custseq",
-                sequence="int_custseq", #name of sequence to use
-                drop=False, #avoid deleting the sequence if shared among multiple tables
-                fields=["id"], #name of the field that should be populated by this sequence
-                start=100, #first value of the sequence
-                maxvalue=200 #max value allowed for the sequence, will raise error if we go above, use None for the maximum allowed value of the db
+                sequence="int_custseq",  # name of sequence to use
+                drop=False,  # avoid deleting the sequence if shared among multiple tables
+                fields=[
+                    "id"
+                ],  # name of the field that should be populated by this sequence
+                start=100,  # first value of the sequence
+                maxvalue=200,  # max value allowed for the sequence, will raise error if we go above, use None for the maximum allowed value of the db
             )
         ]
-
 ```
 
 ### Simple AlphaNumeric Example
@@ -101,7 +102,9 @@ from sequencefield.fields import BigIntegerWithDateSequenceField
 class BigIntSequenceModel(models.Model):
     id = models.BigIntegerField(primary_key=True, auto_created=False)
     created = models.DateTimeField(editable=False)
-    seqid = BigIntegerWithDateSequenceField(datetime_field="created") #this field with combine values from the sequence with date timestamp
+    seqid = BigIntegerWithDateSequenceField(
+        datetime_field="created"
+    )  # this field with combine values from the sequence with date timestamp
     # the 2 first bytes of the bigint will contains the number of days since 1/1/1970
     # the 6 following bytes will contains a unique id coming from the sequence
 
@@ -109,10 +112,10 @@ class BigIntSequenceModel(models.Model):
         constraints = [
             BigIntSequenceConstraint(
                 name="%(app_label)s_%(class)s_custseq",
-                sequence="gdw_post_custseq", #name of the quence
-                drop=False, #avoid deleting the sequence if shared among multiple tables
-                fields=["seqid"], #field to be populated from this sequence
-                start=1, #first value of the sequence
+                sequence="gdw_post_custseq",  # name of the quence
+                drop=False,  # avoid deleting the sequence if shared among multiple tables
+                fields=["seqid"],  # field to be populated from this sequence
+                start=1,  # first value of the sequence
             )
         ]
 ```
